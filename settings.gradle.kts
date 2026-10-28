@@ -22,7 +22,7 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "tgx"
+rootProject.name = "CrystalGram"
 includeBuild("vkryl/annotation")
 include(
   ":tdlib",

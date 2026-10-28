@@ -201,7 +201,9 @@ public class AppUpdater implements InstallStateUpdatedListener, FileUpdateListen
   public static AppInstallationUtil.DownloadUrl getDownloadUrl (@Nullable String serverSuggestedDownloadUrl) {
     @AppInstallationUtil.InstallerId int installerId = AppInstallationUtil.getInstallerId(AppContext.get());
     AppInstallationUtil.PublicMarketUrls publicMarketUrls = publicMarketUrls();
-    return publicMarketUrls.toDownloadUrl(installerId, serverSuggestedDownloadUrl);
+    // Server-suggested client downloads refer to upstream, not this fork.
+    return publicMarketUrls.toDownloadUrl(installerId,
+      "org.thunderdog.challegram".equals(BuildConfig.APPLICATION_ID) ? serverSuggestedDownloadUrl : null);
   }
 
   private void setState (@State int state) {
@@ -323,6 +325,11 @@ public class AppUpdater implements InstallStateUpdatedListener, FileUpdateListen
 
   private void checkForTelegramChannelUpdates () {
     setState(State.CHECKING);
+    // Telegram X APKs cannot update an independently signed Project Crystal fork.
+    if (!"org.thunderdog.challegram".equals(BuildConfig.APPLICATION_ID)) {
+      onUpdateUnavailable();
+      return;
+    }
     Tdlib tdlib = context.hasTdlib() ? context.currentTdlib() : null;
     if (tdlib == null || tdlib.context().inRecoveryMode() || !tdlib.isAuthorized()) {
       onUpdateUnavailable();

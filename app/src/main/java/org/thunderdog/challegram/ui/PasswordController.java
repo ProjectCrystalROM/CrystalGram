@@ -19,7 +19,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.InputType;
 import android.text.Spannable;
-import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.util.Base64;
@@ -855,21 +854,8 @@ public class PasswordController extends ViewController<PasswordController.Args> 
         return Strings.replaceBoldTokens(Lang.getString(R.string.format_doubleLines, Lang.getString(R.string.SentMissedCall, Strings.formatPhone(missedCall.phoneNumberPrefix)), Lang.plural(R.string.SentMissedCallXDigits, missedCall.length)), ColorId.textLight);
       }
       case TdApi.AuthenticationCodeTypeFragment.CONSTRUCTOR: {
-        TdApi.AuthenticationCodeTypeFragment fragment = (TdApi.AuthenticationCodeTypeFragment) type;
-        SpannableStringBuilder b = new SpannableStringBuilder();
-        b.append(Strings.replaceBoldTokens(Lang.getStringSecure(R.string.SentFragmentCode)));
-        if (!StringUtils.isEmpty(fragment.url)) {
-          b.append(" ");
-          int start = b.length();
-          b.append(Lang.getStringSecure(R.string.OpenFragment));
-          b.setSpan(new NoUnderlineClickableSpan() {
-            @Override
-            public void onClick (@NonNull View widget) {
-              UI.openUrl(fragment.url);
-            }
-          }, start, b.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        }
-        return b;
+        // Keep navigation instructions for existing accounts without a marketplace link.
+        return Strings.replaceBoldTokens(Lang.getStringSecure(R.string.SentFragmentCode));
       }
       case TdApi.AuthenticationCodeTypeFirebaseIos.CONSTRUCTOR: // unreachable
       default:

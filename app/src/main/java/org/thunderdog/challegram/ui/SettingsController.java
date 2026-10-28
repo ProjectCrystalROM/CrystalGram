@@ -666,7 +666,7 @@ public class SettingsController extends ViewController<Void> implements
     @StringRes int downloadStringRes = R.string.CheckForUpdates;
     if (tdlib.hasUrgentInAppUpdate() && tdlib.isProduction()) {
       downloadIconRes = R.drawable.baseline_warning_24;
-      downloadUrl = new AppInstallationUtil.DownloadUrl(downloadUrl.installerId, tdlib.tMeUrl(BuildConfig.TELEGRAM_UPDATES_CHANNEL));
+      downloadUrl = new AppInstallationUtil.DownloadUrl(downloadUrl.installerId, BuildConfig.DOWNLOAD_URL);
     } else {
       switch (downloadUrl.installerId) {
         case AppInstallationUtil.InstallerId.UNKNOWN:
@@ -1182,7 +1182,7 @@ public class SettingsController extends ViewController<Void> implements
           hint.append(Lang.pluralBold(R.string.PullRequestsInfo, appBuildInfo.getPullRequests().size()));
         }
         b.info(hint);
-        b.item(new OptionItem(R.id.btn_sourceCode, Lang.getCharSequence(R.string.format_commit, BuildConfig.PROJECT_NAME, appBuildInfo.getCommit()), OptionColor.NORMAL, R.drawable.baseline_logo_telegram_24));
+        b.item(new OptionItem(R.id.btn_sourceCode, Lang.getCharSequence(R.string.format_commit, BuildConfig.PROJECT_NAME, appBuildInfo.getCommit()), OptionColor.NORMAL, R.drawable.crystalgram_mark));
         if (appBuildInfo.getTdlibCommitFull() != null) {
           b.item(new OptionItem(R.id.btn_tdlib, Lang.getCharSequence(R.string.format_commit, "TDLib " + Td.tdlibVersion(), Td.tdlibCommitHash()), OptionColor.NORMAL, R.drawable.baseline_tdlib_24));
         }
