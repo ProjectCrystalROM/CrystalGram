@@ -2,19 +2,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <string name="language_continueInLanguage">Continue in English</string>
 
-  <string name="Page1Title">Telegram X</string>
+  <string name="Page1Title">CrystalGram</string>
   <string name="Page2Title">Fast</string>
   <string name="Page3Title">Free</string>
   <string name="Page4Title">Powerful</string>
   <string name="Page5Title">Secure</string>
   <string name="Page6Title">Cloud-Based</string>
-  <string name="Page1Message">The world\'s **fastest** messaging app.\nIt is **free** and **secure**.</string>
-  <string name="Page2Message">**Telegram** delivers messages\nfaster than any other application.</string>
-  <string name="Page3Message">**Telegram** provides free unlimited\ncloud storage for chats and media.</string>
-  <string name="Page4Message">**Telegram** has no limits on\nthe size of your media and chats.</string>
-  <string name="Page5Message">**Telegram** keeps your messages\nsafe from hacker attacks.</string>
-  <string name="Page6Message">**Telegram** lets you access your\nmessages from multiple devices.</string>
-  <string name="StartMessaging">Start Messaging</string>
+  <string name="Page1Message">Even the fallen deserve to stay connected.</string>
+  <string name="Page2Message">Still runs on your decade-old phone when the competition doesn't.</string>
+  <string name="Page3Message">**Telegram** supports free cloud storage\nwith files up to 2GB each.</string>
+  <string name="Page4Message">**Telegram** has no limits on\nthe size of your chats.</string>
+  <string name="Page5Message">**Telegram** provides the services accessible in CrystalGram</string>
+  <string name="Page6Message">**CrystalGram** lets you access your\nmessages from multiple devices.</string>
+  <string name="StartMessaging">Start Crystalizing</string>
 
   <string name="network_Connecting">Connecting…</string>
   <string name="network_WaitingForNetwork">Waiting for network…</string>
@@ -30,7 +30,7 @@
   <string name="network_LookupFailed">No routes found, connecting directly…</string>
   <string name="network_LookupFailedProxy">No routes found, using the previous proxy…</string>
 
-  <string name="AppNameAndVersion">Telegram X %1$s</string>
+  <string name="AppNameAndVersion">CrystalGram %1$s</string>
   <string name="language_code">en</string>
   <string name="language_emoji">&#127482;&#127480;</string>
   <string name="language_name">English</string>
@@ -38,7 +38,7 @@
   <string name="language_dateFormatLocale">en-UK</string>
   <string name="language_rtl">0</string>
   <string name="language_disable_lowercase">0</string>
-  <string name="language_continueInLanguagePopupText">**Telegram X** is now available in **English**.\n\nWould you like to switch app language?\n\nYou can revert changes anytime later in Settings&#160;&gt;&#160;Language.</string>
+  <string name="language_continueInLanguagePopupText">**CrystalGram** is now available in **English**.\n\nWould you like to switch app language?\n\nYou can revert changes anytime later in Settings&#160;&gt;&#160;Language.</string>
   <string name="language_appliedLanguage">App language has been set to English.</string>
   <string name="MoreLanguages">More Languages</string>
   <string name="timestamp_now">just now</string>
@@ -111,7 +111,7 @@
   <string name="login_PhoneNumber">Phone number</string>
   <string name="login_PremiumRequiredTitle">Telegram Premium required</string>
   <string name="login_PremiumRequiredBtn">Visit telegram.org</string>
-  <string name="login_PremiumRequired">**Telegram Premium** is required to proceed.\n\nUnfortunately, it\'s currently not possible to make in-app purchases through **Telegram X**.\n\nPlease use one of other official apps and enter the same phone number to set up the subscription.</string>
+  <string name="login_PremiumRequired">**Telegram Premium** is required to proceed.\n\nUnfortunately, it\'s currently not possible to make in-app purchases through **CrystalGram**.\n\nPlease use upstream Telegram and enter the same phone number to set up the subscription.</string>
   <string name="login_error">Error: %1$s. __Contact us__, if you need help.</string>
   <string name="login_Code">Code</string>
   <string name="login_LastDigits_one">Last %1$s digit</string>
@@ -316,7 +316,7 @@
   <string name="MessageReply">Reply</string>
   <string name="Comment">Comment</string>
   <string name="AnyAsX">as %1$s</string>
-  <string name="AnonymousAdmin">Anonymous Admin</string>
+  <string name="AnonymousAdmin">Cowardly Admin</string>
   <string name="DeletedMessage">Deleted message</string>
   <string name="UnsupportedMessage">Unsupported message</string>
   <string name="UnsupportedMessageType">Unsupported message</string>
@@ -514,7 +514,7 @@
   <string name="PasscodeInvalidPin">Invalid PIN</string>
   <string name="PasscodeInvalidPattern">Invalid Pattern</string>
 
-  <string name="ChangePasscodeInfo">When a passcode is set, a lock icon appears above your chat list. Tap it to lock your Telegram app.\n\nNote: if you forget your passcode, you\'ll need to log out or reinstall the app. All your Secret Chats will be lost.</string>
+  <string name="ChangePasscodeInfo">When a passcode is set, a lock icon appears above your chat list. Tap it to lock your CrystalGram app.\n\nNote: if you forget your passcode, you\'ll need to log out or reinstall the app. All your Secret Chats will be lost.</string>
   <string name="AutoLock">Auto-Lock</string>
   <string name="AutoLockDisabled">Disabled</string>
   <string name="AutoLockInstant">Instant</string>
@@ -557,7 +557,7 @@
   <string name="fingerprint_fail">Unknown finger</string>
   <string name="biometrics_hint3">Please add biometrics in System Settings &gt; Security &gt; Biometrics.</string>
   <string name="biometrics_fail">Unknown biometrics</string>
-  <string name="cam_hint">Please allow Telegram X to use camera in System Settings &gt; Apps &gt; Telegram X &gt; Permissions</string>
+  <string name="cam_hint">Please allow CrystalGram to use camera in System Settings &gt; Apps &gt; Telegram X &gt; Permissions</string>
   <string name="Settings">Settings</string>
   <string name="LogOut">Log out</string>
   <string name="DeleteAccount">Delete account</string>
@@ -615,7 +615,7 @@
   <string name="NoContacts">No contacts to display</string>
   <string name="ChannelOwner">Owner</string>
   <string name="Administrator">Administrator</string>
-  <string name="LinkInfo">Anyone who has Telegram installed will be able to join your group by following this link.</string>
+  <string name="LinkInfo">Anyone who has CrystalGram installed will be able to join your group by following this link.</string>
   <string name="ChannelAddAdmin">Add administrator</string>
   <string name="InviteLink">Invite Link</string>
   <string name="FolderLink">Folder Link</string>
@@ -825,7 +825,7 @@
   <string name="EditBotSettings">Change bot settings</string>
   <string name="EditBotCommands">Edit bot commands</string>
   <string name="EditBotHint">Use @BotFather to manage this bot.</string>
-  <string name="EditBotUsernameHint">You can\'t edit this username. You may acquire additional usernames on [Fragment](%1$s).</string>
+  <string name="EditBotUsernameHint">You can\'t edit this username. There was a crypto upsell for more names here, but we shattered it.</string>
   <string name="BotDescriptionEmpty">Tap to set intro</string>
   <string name="Stickers">Stickers</string>
   <string name="NoAppToOpen">Application to open this file not found</string>
@@ -1694,8 +1694,8 @@
   <string name="CropSquare">Square</string>
   <string name="Wallpaper">Wallpaper</string>
   <string name="ChatPreview">Chat preview</string>
-  <string name="AndroidVersionWarning">Sorry, this feature is available only on Android %1$s (%2$s) or higher</string>
-  <string name="AndroidVersionWarningTitle">Unsupported Android version</string>
+  <string name="AndroidVersionWarning">Telegram blocked this below Android %1$s (%2$s) or higher. We would like to fix this</string>
+  <string name="AndroidVersionWarningTitle">Open GitHub Issue</string>
   <string name="RemoveStickerSet">Remove sticker set %1$s?</string>
   <string name="RemoveEmojiSet">Remove emoji pack %1$s?</string>
   <string name="RemoveStickerSetAction">Remove</string>
@@ -2354,7 +2354,7 @@
   <string name="EventLogPromotedDeleteStories">Delete stories of others</string>
   <string name="EventLogPromotedAddAdmins">Add admins</string>
   <string name="EventLogPromotedManageTopics">Manage topics</string>
-  <string name="EventLogPromotedRemainAnonymous">Remain anonymous</string>
+  <string name="EventLogPromotedRemainAnonymous">Remain cowardly</string>
   <string name="EventLogPromotedManageVoiceChats">Manage video chats</string>
   <string name="EventLogPromotedManageLiveStreams">Manage live streams</string>
   <string name="EventLogPromotedManageWelcomeMessages">Manage welcome messages</string>
@@ -2856,7 +2856,7 @@
   <string name="Proceed">Proceed</string>
   <string name="LiveLocationError">Unable to detect current location.</string>
   <string name="AutoInstantView">Open in Instant View</string>
-  <string name="AutoInstantViewDesc">Whenever you open a link, Telegram will try to generate an Instant View page for it.</string>
+  <string name="AutoInstantViewDesc">Whenever you open a link, Crystal will try to generate an Instant View page for it.</string>
   <string name="AutoInstantViewNone">No links</string>
   <string name="AutoInstantViewTelegram">telegram.org + telegra.ph</string>
   <string name="AutoInstantViewAll">All links</string>
@@ -2864,7 +2864,7 @@
   <string name="InternalUrlUnsupported">Sorry, this link type is not yet supported.</string>
   <string name="AppUpdateRequiredTitle">Update required</string>
   <string name="AppUpdateOk">Update</string>
-  <string name="ProxySponsor">Proxy sponsor</string>
+  <string name="ProxySponsor">Unsolicited AD from Proxy</string>
   <string name="message_viaBot">via %1$s</string>
   <string name="message_nameViaBot">%1$s via %2$s</string>
   <string name="message_adminSignPlain">admin</string>
@@ -3127,7 +3127,7 @@
   <string name="url_contactsPrivacy" tools:ignore="TypographyDashes">https://telegram.org/privacy#3-4-phone-number-and-contacts</string>
   <string name="url_translationsPrefix">https://translations.telegram.org/en/android_x/unsorted/</string>
   <string name="url_faqPhoneNumber">https://telegram.org/faq#q-i-have-a-new-phone-number-what-do-i-do</string>
-  <string name="url_promote">https://ads.telegram.org</string>
+  <string name="url_promote">https://www.reddit.com/r/Antiadvertising/</string>
   <string name="xSecondsShort_one">%1$ss</string>
   <string name="xSecondsShort_other">%1$ss</string>
   <string name="xMinutesShort_one">%1$sm</string>
@@ -5242,7 +5242,7 @@
   <string name="xPRs_other">%1$s PRs</string>
   <string name="PR">PR #%1$d</string>
 
-  <string name="OpenSourceGuide">**Telegram X** is open source. You can view the exact source code used to make the version you have installed.</string>
+  <string name="OpenSourceGuide">**CrystalGram** is open source. You can view the exact source code used to make the version you have installed.</string>
 
   <string name="ResetPasswordWait">You recently requested a password reset that was canceled. Please wait %1$s before making a new request.</string>
   <string name="RestorePasswordNoEmailText2">Since you didn’t provide a recovery email when setting up your password, your remaining options are either to remember your password or wait 7 days until your password is reset.</string>
@@ -5255,7 +5255,7 @@
   <string name="CancelPasswordResetYes">YES</string>
 
   <string name="ExperimentalBuildTitle">Caution: experimental build</string>
-  <string name="ExperimentalBuildInfo">This version of **Telegram X** is not designed for long-term use.\n\nIt may completely stop working over a time and you cannot turn notifications on.\n\nIf you are looking for the proper Telegram X APK file, see https://t.me/tgx_log</string>
+  <string name="ExperimentalBuildInfo">This version of **CrystalGram** is not designed for long-term use.\n\nIt may completely stop working over a time and you cannot turn notifications on.\n\nIf you are looking for the proper Telegram X APK file, see https://t.me/tgx_log</string>
 
   <string name="PremiumRequiredSticker">Sending this sticker requires a **Telegram Premium** subscription.</string>
   <string name="PremiumRequiredVoiceVideo">This setting requires a **Telegram Premium** subscription.</string>
@@ -5290,8 +5290,8 @@
 
   <string name="AnonWarning">This action requires revealing your personal account. Tap again to confirm.</string>
 
-  <string name="LinkPurchasable">This link is unavailable. However, it is available for purchase. [Learn more…](%1$s)</string>
-  <string name="UsernamePurchasable">This username is unavailable. However, it is available for purchase. [Learn more…](%1$s)</string>
+  <string name="LinkPurchasable">This link is unavailable. However, Telegram would love to sell you crypto to buy it.</string>
+  <string name="UsernamePurchasable">This username is unavailable. However, Telegram would love to sell you crypto to buy it.</string>
 
   <string name="AggressiveAntiSpam">Aggressive Anti-Spam</string>
   <string name="AggressiveAntiSpamDesc">Telegram will filter more spam, but may occasionally affect ordinary messages. You can report False Positives in Recent Actions.</string>
@@ -5305,8 +5305,8 @@
   <string name="MultiUsernamePrefix">also</string>
   <string name="MultiLinkPrefix">also</string>
 
-  <string name="SentFragmentCode">Get the code in the Numbers section on Fragment.</string>
-  <string name="OpenFragment">Open Fragment</string>
+  <string name="SentFragmentCode">Get the code from your Funny Money Account on Fragment's Numbers section.</string>
+  <string name="OpenFragment">Open Telegram's Crypto marketplace</string>
   <string name="AnonymousNumbers">&#127988;&#8205;&#9760;&#65039; Anonymous Numbers</string>
 
   <string name="login_DeadEnd">We could not send an SMS with a confirmation code to your phone number. __Contact us__, if you need help.</string>
@@ -5608,7 +5608,7 @@
   <string name="SwipeToSwapLinkPreview">Swipe to choose specific link preview</string>
 
   <string name="MessageRestrictedByTelegram">This is a service message from Telegram</string>
-  <string name="MessageUnsupportedHint">This message is unsupported in the installed version of Telegram X.</string>
+  <string name="MessageUnsupportedHint">This message is unsupported in the installed version of CrystalGram.</string>
 
   <string name="ConfirmPasswordAlertHint">Please enter your 2-Step verification password to confirm the action.</string>
   <string name="DeleteAccountReason">Reason</string>
@@ -5747,8 +5747,8 @@
   <string name="GiveawayInfoClose">Close</string>
   <string name="GiveawayViewMyPrize">View my prize</string>
 
-  <string name="EmulatorWarning">You are running **Telegram X** on an **emulated device**.\n\n**Note**: if you don\'t have an **existing** Telegram account, you may need a **real device** to create it.\n\nIn case you see this warning on a real device (such as phone, tablet, etc), press **report issue**.</string>
-  <string name="EmulatorWarningStrict">You are running **Telegram X** on an **emulated device**.\n\n**Note**: if you don\'t have an **existing** Telegram account, you may need a **real device** to create it.\n\nIf you have your phone connected to a PC, disconnect it and restart Telegram X.</string>
+  <string name="EmulatorWarning">You are running **CrystalGram** on an **emulated device**.\n\n**Note**: if you don\'t have an **existing** Telegram account, you may need a **real device** to create it.\n\nIn case you see this warning on a real device (such as phone, tablet, etc), press **report issue**.</string>
+  <string name="EmulatorWarningStrict">You are running **CrystalGram** on an **emulated device**.\n\n**Note**: if you don\'t have an **existing** Telegram account, you may need a **real device** to create it.\n\nIf you have your phone connected to a PC, disconnect it and restart Telegram X.</string>
   <string name="EmulatorWarningTitle">Emulator detected</string>
   <string name="EmulatorWarningBtnReport">Report issue</string>
   <string name="EmulatorWarningBtnOk">Got it</string>
