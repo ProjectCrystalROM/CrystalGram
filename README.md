@@ -24,7 +24,7 @@ The LG K7 (MS330), running Project Crystal's AOSP 5.1.1 build, is an initial int
 
 ## Development Status
 
-**Bundled branding integrated; full build and device validation pending.**
+**First release available: release-signed Lollipop builds, with ARMv7 validated on the LG K7/MS330.**
 
 The default application ID is `ing.crystaliz.crystalgram`. See [branding decisions, Fragment review, and validation](docs/CRYSTALGRAM_BRANDING.md) for the integration details and remaining build requirements.
 

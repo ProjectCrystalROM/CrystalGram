@@ -56,7 +56,7 @@ Both main resources and the Android 8+ resource overlay compile with Android AAP
 
 The Lollipop debug build succeeds with JDK 25 and the SDK/NDK versions in `version.properties`. ARMv7, ARM64, x86 and x86_64 APKs were produced. The ARMv7 package was verified as `ing.crystaliz.crystalgram`, label `CrystalGram`, minimum SDK 21, with valid v1/v2 signatures.
 
-The maintainer confirmed installation, Telegram login, corrected English intro wording, centered intro artwork, and the light and dark palettes on the target device. microG reports FCM registration; actual push message delivery remains unverified. These are debug builds, not production-signed releases.
+The maintainer confirmed installation, Telegram login, corrected English intro wording, centered intro artwork, and the light and dark palettes on the target device. Those initial results used debug builds. A subsequent dedicated-key Lollipop release build passed on-device installation, Telegram login, chat browsing, light/dark colors, strings and actual incoming push delivery through microG on the LG K7/MS330 running AOSP 5.1.1. ARM64, x86 and x86_64 release APKs pass package/signature checks but have not been hardware-tested.
 
 Earlier failures came from incomplete submodule checkouts, missing SDK packages/licenses, and empty proxy environment values. They were resolved before successful builds. Keep configuration cache enabled while Isolated Projects is enabled.
 
@@ -77,3 +77,28 @@ The Blue base theme (also inherited by Classic), Night Blue, the intro circle, a
 Lavender fills and highlights pair with dark purple foregrounds in light mode. Dark mode uses lavender accents and amethyst surfaces, with `#30203F` and `#65477F` variants to distinguish backgrounds and controls. Light-mode secondary text uses amethyst and muted icons use `#685875`; the contrast correction preserves the effective Night Blue palette exactly.
 
 Lavender/amethyst contrast is 8.10:1; amethyst/white is 10.90:1. Corrected light foreground pairs on white, light gray and lavender are at least 4.81:1. The maintainer confirmed both palettes on-device.
+
+
+## First signed release — 2026-10-29
+
+CrystalGram 0.29.1.1820 Lollipop release APKs use a dedicated RSA3072 application
+signer, separate from Project Crystal ROM signing keys. Package ID remains
+`ing.crystaliz.crystalgram`; minimum API21, target API37. The release signer is:
+
+```
+CN=Crystalgram, O=ProjectCrystalROM
+SHA-256: 1fd6c23613c39f4414911e6e217d2708f2fa92933263848da0a54b6d6784e503
+```
+
+Build with the existing private release-signing configuration and valid local
+Telegram/Firebase configuration (never commit those files):
+
+```sh
+bash ./gradlew :app:validateApiTokens :app:assembleLollipopRelease --no-daemon --console=plain
+```
+
+All four architecture APKs pass v1 signature verification with that signer and
+are non-debuggable. Only ARMv7 has the hardware validation described above.
+Development APKs signed with the Android debug key cannot update directly to
+these release APKs; preserve anything needed before uninstalling the debug app.
+Future releases must retain the release signing identity for update compatibility.
