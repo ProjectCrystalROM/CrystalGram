@@ -3,7 +3,8 @@
 # animations and scrolling, screenshots and recordings, check results before and after a change,
 # benchmarks and their comparison, microbenchmarks and minSdk check. Checks and benchmarks run on
 # connected test device, never on device with Telegram X, which may have real accounts.
-# Smoke checks are in tests/<module>/tools.
+# Smoke checks are in tests/<module>/tools. Checks of a change in tests/<module>/checks aren't
+# built, so that the result depends only on the tools.
 # describeTestToolsCheck task writes report to build/test-tools-check/report.md, where home path
 # and device serial are replaced. Report notes when connection to the device was lost,
 # which fails tests regardless of code.
@@ -70,7 +71,7 @@ anonymize() {
 }
 
 gradle() {
-  ./gradlew --console=plain --continue -Ptgx.testTools "$@"
+  ./gradlew --console=plain --continue -Ptgx.testTools -Ptgx.checks=false "$@"
 }
 
 run() {
@@ -386,7 +387,7 @@ fi
 step_checks() {
   local ui_filter=(-Pandroid.testInstrumentationRunnerArguments.package=tgx)
   if ! $HAS_SNAPSHOT; then
-    ui_filter+=(-Pandroid.testInstrumentationRunnerArguments.notClass=tgx.test.AuthorizedLaunchTest)
+    ui_filter+=(-Pandroid.testInstrumentationRunnerArguments.notClass=tgx.test.AuthorizedLaunchTest,tgx.smoke.NotificationFloodCheck)
   fi
   animation_scales > "$OUT/scales-before-ui.txt"
   run clear gradle clearCheckResults
