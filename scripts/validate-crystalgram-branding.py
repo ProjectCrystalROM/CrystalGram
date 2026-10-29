@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Check bundled branding without Gradle, Android SDK, or initialized submodules."""
 from pathlib import Path
+import argparse
 import re
 import struct
 import subprocess
@@ -8,6 +9,9 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 RES = ROOT / 'app/src/main/res'
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--base', default='HEAD', help='Git revision before the changes being checked (default: HEAD)')
+BASE = parser.parse_args().base
 
 def check(condition, message):
     if not condition:
@@ -26,7 +30,7 @@ for key, value in current.items():
 # Compare with the checked-in tree to catch accidental resource/API changes.
 for name in ('strings.xml', 'local_strings.xml'):
     path = f'app/src/main/res/values/{name}'
-    original = strings(subprocess.check_output(['git', 'show', f'HEAD:{path}'], cwd=ROOT))
+    original = strings(subprocess.check_output(['git', 'show', f'{BASE}:{path}'], cwd=ROOT))
     updated = strings((ROOT / path).read_bytes())
     check(original.keys() == updated.keys(), f'Resource keys changed: {name}')
     for key in original:

@@ -20,3 +20,6 @@ obj
 /tests/*/checks
 
 libc++_shared.so
+
+# Local Firebase project configuration
+/app/google-services.json

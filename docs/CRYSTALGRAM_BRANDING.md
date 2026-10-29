@@ -13,7 +13,7 @@ CrystalGram is the independent Project Crystal client for Telegram. Telegram ope
 - Supplied 48/72/96/144/192px PNGs are copied unchanged into mdpi/hdpi/xhdpi/xxhdpi/xxxhdpi launcher and round-launcher resources. `logo_middle` uses the same artwork. The existing `images/logo.png` already matched the supplied 512px logo.
 - Android 8+ adaptive launchers use the supplied PNGs over a dark teal background, inset into the adaptive safe area. Old adaptive plane layers are removed.
 - A code-native crystal silhouette supplies the Android 5+ notification icon, themed adaptive icon, passcode mark, and source-code menu mark. The legacy notification fallback uses the supplied bitmap.
-- Intro textures use supplied CrystalGram artwork. The native intro rectangle is square to match it; the existing animation and resource/JNI names remain intact.
+- Intro textures use supplied CrystalGram artwork. The native intro rectangle is square and its anchor is centered to match it; the existing animation and resource/JNI names remain intact.
 - Telegram call/service marks and the generic airplane icon remain. Historical upstream changelog artwork and screenshots remain as upstream history, not current CrystalGram release marketing.
 
 ## Compatibility and update integration
@@ -22,7 +22,7 @@ The Lollipop flavor remains API 21–22, including Android 5.1.1. No SDK levels,
 
 `AppUpdater.java` no longer offers Telegram X channel APKs to an application with a different ID. Those packages cannot update independently signed CrystalGram installations. Urgent-update notices and server-suggested downloads also keep the configured fork release destination. CrystalGram releases remain available through the configured release link; a separate automatic fork update feed is not implemented.
 
-Downloaded translations and translation fetching are unchanged, as requested. Server-provided text can therefore differ from bundled branding and wording.
+Bundled English is authoritative for ordinary resources and plural forms, so downloaded English does not override CrystalGram branding or authored wording. Cloud-only ordinary keys and other language packs retain the upstream translation path. Translation fetching is unchanged.
 
 ## Existing resource errors repaired
 
@@ -37,8 +37,8 @@ Only escaping and invalid out-of-element text were corrected. Displayed wording,
 
 | Resource | Finding | Result |
 | --- | --- | --- |
-| `LinkPurchasable` | Mentions buying an unavailable group/channel link with crypto. | Flagged for owner review; existing critical wording retained. |
-| `UsernamePurchasable` | Mentions buying an unavailable username with crypto. | Flagged for owner review; existing critical wording retained. |
+| `LinkPurchasable` | Mentions buying an unavailable group/channel link with crypto. | Cleared by owner review: intended critical wording confirmed; no bundled clickable link. |
+| `UsernamePurchasable` | Mentions buying an unavailable username with crypto. | Cleared by owner review: intended critical wording confirmed; no bundled clickable link. |
 | `EditBotUsernameHint` | Already says the crypto upsell was shattered. The caller still constructs a Fragment URL and supplies it as a format argument, but this bundled string has no placeholder/link. | Existing wording retained. |
 | `SentFragmentCode` | Navigation instructions for existing Fragment-number accounts; not a purchase prompt. | Exact “Funny Money Account” wording retained, with required apostrophe escaping. |
 | `OpenFragment` | Was appended as a clickable marketplace link in the Fragment login prompt. | Removed from the rendered login prompt in `PasswordController.java`, including the `fragment.url` click handler. Resource key retained for compatibility. |
@@ -48,6 +48,32 @@ The username purchase strings currently have no `%1$s` placeholder, so the Fragm
 
 ## Validation
 
-Run `python3 scripts/validate-crystalgram-branding.py` from any directory. It checks XML, resource keys and format arguments against Git HEAD, selected authored strings, service attribution, launcher dimensions and original asset bytes (when the sibling asset directory is present), adaptive artwork, default identity, manifest references, and API 21–22 configuration.
+Run `python3 scripts/validate-crystalgram-branding.py` from the repository root (or use its absolute path from elsewhere). Use `--base fe76f810` to compare the completed branding commit against its pre-branding parent. It checks XML, resource keys and format arguments against Git HEAD or the supplied `--base` revision, selected authored strings, service attribution, launcher dimensions and original asset bytes (when the sibling asset directory is present), adaptive artwork, default identity, manifest references, and API 21–22 configuration.
 
-Both main resources and the Android 8+ resource overlay compile with Android AAPT2 8.9.1-12782657. `git diff --check` passes. Full Gradle and device validation are recorded below after the build attempt.
+Both main resources and the Android 8+ resource overlay compile with Android AAPT2 8.9.1-12782657. `git diff --check` passes.
+
+### Build and device validation — 2026-10-29
+
+The Lollipop debug build succeeds with JDK 25 and the SDK/NDK versions in `version.properties`. ARMv7, ARM64, x86 and x86_64 APKs were produced. The ARMv7 package was verified as `ing.crystaliz.crystalgram`, label `CrystalGram`, minimum SDK 21, with valid v1/v2 signatures.
+
+The maintainer confirmed installation, Telegram login, corrected English intro wording, centered intro artwork, and the light and dark palettes on the target device. microG reports FCM registration; actual push message delivery remains unverified. These are debug builds, not production-signed releases.
+
+Earlier failures came from incomplete submodule checkouts, missing SDK packages/licenses, and empty proxy environment values. They were resolved before successful builds. Keep configuration cache enabled while Isolated Projects is enabled.
+
+```sh
+bash ./gradlew :app:validateApiTokens :app:assembleLollipopDebug --no-daemon --console=plain
+```
+
+## Local credentials
+
+Set `telegram.api_id` and `telegram.api_hash` in ignored `local.properties`. Supply your own `app/google-services.json` matching `ing.crystaliz.crystalgram`; this file is ignored and must not be committed. The upstream Firebase configuration has been removed from tracking. Signing keys and their passwords must also remain local.
+
+Push testing requires a non-experimental configuration: `app.experimental=false`, signing enabled, and `keystore.file` pointing to a local signing-properties file. Experimental builds disable Firebase integration and push registration. Use a debug key for development and a separate appropriate release-signing configuration for distribution.
+
+## Project Crystal palette
+
+The Blue base theme (also inherited by Classic), Night Blue, the intro circle, and system fallback colors use pale lavender `#E9D8F5` and deep amethyst `#4B3069`. Existing theme IDs and resource names remain unchanged. Semantic red/green colors, contact identity hues, photo editor swatches and LED choices remain intact.
+
+Lavender fills and highlights pair with dark purple foregrounds in light mode. Dark mode uses lavender accents and amethyst surfaces, with `#30203F` and `#65477F` variants to distinguish backgrounds and controls. Light-mode secondary text uses amethyst and muted icons use `#685875`; the contrast correction preserves the effective Night Blue palette exactly.
+
+Lavender/amethyst contrast is 8.10:1; amethyst/white is 10.90:1. Corrected light foreground pairs on white, light gray and lavender are at least 4.81:1. The maintainer confirmed both palettes on-device.

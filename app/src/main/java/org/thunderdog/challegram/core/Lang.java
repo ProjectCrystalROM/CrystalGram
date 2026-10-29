@@ -3673,6 +3673,10 @@ public class Lang {
   }
 
   public static @Nullable TdApi.LanguagePackStringValueOrdinary getStringValue (String key, @NonNull TdApi.LanguagePackInfo language) {
+    // CrystalGram's bundled English is authoritative, including its custom UI wording.
+    // Other language packs continue to use Telegram's translations.
+    if (isBuiltinLanguage(language.id) && getStringResourceIdentifier(key) != 0)
+      return null;
     String cacheKey = null;
     if (packId().equals(language.id)) {
       cacheKey = makeStringCacheKey(language.id, key);
@@ -3708,6 +3712,9 @@ public class Lang {
   }
 
   public static @Nullable TdApi.LanguagePackStringValuePluralized getStringPluralized (String key, @NonNull TdApi.LanguagePackInfo language) {
+    // Keep plural forms consistent with the bundled English ordinary strings.
+    if (isBuiltinLanguage(language.id))
+      return null;
     String cacheKey = null;
     if (packId().equals(language.id)) {
       cacheKey = makeStringCacheKey(language.id, key);

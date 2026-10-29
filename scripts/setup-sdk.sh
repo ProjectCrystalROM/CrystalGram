@@ -1,5 +1,13 @@
 #!/bin/bash
 set -e
+# SDK Manager treats an exported empty proxy value as a malformed URL.
+for proxy_var in HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy; do
+  if [[ -v "$proxy_var" && -z "${!proxy_var}" ]]; then
+    unset "$proxy_var"
+  fi
+done
+unset proxy_var
+
 # shellcheck source=set-env.sh
 source "$(dirname "$0")"/set-env.sh "$1"
 
@@ -17,6 +25,13 @@ if [ ! -d "$ANDROID_SDK_ROOT/cmdline-tools/latest" ]; then
   mv -f cmdline-tools/cmdline-tools cmdline-tools/latest
 fi
 popd
+
+# Prepare sdkmanager without accepting licenses or installing SDK packages.
+if [[ "$1" == "--tools-only" ]]; then
+  echo "Command-line tools are ready. Review licenses with:"
+  echo "\"$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager\" --sdk_root=\"$ANDROID_SDK_ROOT\" --licenses"
+  exit 0
+fi
 
 # Downloading packages
 BUILD_TOOLS_VERSION=$(read-property.sh version.properties version.build_tools)

@@ -28,6 +28,20 @@ The LG K7 (MS330), running Project Crystal's AOSP 5.1.1 build, is an initial int
 
 The default application ID is `ing.crystaliz.crystalgram`. See [branding decisions, Fragment review, and validation](docs/CRYSTALGRAM_BRANDING.md) for the integration details and remaining build requirements.
 
+## Checkout dependencies
+
+CrystalGram uses Git submodules for TDLib, vkryl, and native libraries. A normal clone can leave these directories empty; Git LFS does not populate them.
+
+After cloning, fetch the pinned dependencies and their nested submodules:
+
+```sh
+git submodule update --init --recursive --jobs 4
+```
+
+Do not use `--remote` for normal builds: it advances dependencies instead of using the revisions recorded by CrystalGram. Check `git submodule status --recursive`; a leading `-` means a dependency is still uninitialized, while `+` means its checkout differs from the recorded revision.
+
+The current build tooling requires JDK 25. Android SDK, NDK, CMake, and build-tools versions are recorded in `version.properties`; dependency checkout alone does not install them. See [branding and build validation](docs/CRYSTALGRAM_BRANDING.md) for credential setup and validation status.
+
 ## Upstream and Attribution
 
 CrystalGram is based on [Telegram X](https://github.com/TGX-Android/Telegram-X), powered by [TDLib](https://core.telegram.org/tdlib).
